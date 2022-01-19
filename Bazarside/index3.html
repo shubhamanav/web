@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Animated Login Form | CodingNepal</title>
+    <link rel="stylesheet" href="stylee.css">
+
+    <script>
+        let check = function() {
+            if (document.getElementById('password-1').value == document.getElementById('password-2').value) {
+                document.getElementById("formSubmit").disabled = false;
+                document.getElementById("formSubmit").style.background = '#fe2265';
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'Password Matched';
+            } else {
+                document.getElementById("formSubmit").disabled = true;
+                document.getElementById("formSubmit").style.background = 'grey';
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Password not Matching';
+            }
+        }
+        let validate = function() {
+            console.log(document.getElementById('password-1').value)
+            console.log(document.getElementById('password-2').value)
+            if (document.getElementById('password-1').value.length < 5) {
+                document.getElementById('pwd-length-1').innerHTML = 'Minimum 6 characters';
+            } else {
+                document.getElementById('pwd-length-1').innerHTML = '';
+                check();
+            }
+            if (document.getElementById('password-2').value.length < 5) {
+                document.getElementById('pwd-length-2').innerHTML = 'Minimum 6 characters';
+            } else {
+                document.getElementById('pwd-length-2').innerHTML = '';
+                check();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Password Reset</h1>
+    <div class="center">
+
+        <form method="post" action="index4.html">
+
+            <div class="txt_field"><i class="fa fa-key icon"></i>
+                <input class="input-field" id="password-1" type="password" name="password" oninput='validate();' required>
+
+
+                <label>New Password*</label>
+            </div>
+            <span id="pwd-length-1"></span>
+            <div class="txt_field"><i class="fa fa-key icon"></i>
+                <input class="input-field" id="password-2" type="password" name="confirmPassword" oninput='validate();' required>
+
+
+                <label>Confirm Password*</label>
+
+            </div>
+
+            <span id="message"></span>
+
+            <input class="btn" id="formSubmit" type="submit" value="Reset Password">
+            <div class="signup_link">
+                Back to <a href="#">Login Page</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
